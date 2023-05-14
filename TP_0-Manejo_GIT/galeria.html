@@ -49,7 +49,28 @@
         </div>
     <?php
         }
-a class="nav-link" href="nuestras_delicias.php">Nuestras Delicias</a>
+    ?>
+
+
+    <!--------------------------NAVBAR-------------------------->
+
+    <nav class="navbar navbar-light navbar-expand-md float-none navigation-clean" style="background: rgba(0,0,0,0.66);padding: 0;">
+        <div class="container-fluid">
+            <a href="index.php"><img src="assets/img/GENERAL/Logo.png" class = "logo"></a>
+            <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1">
+                <i class="icon ion-android-menu" style="color: rgb(55,54,54);font-size: 35px;"></i>
+                <span class="sr-only" style="opacity: 1;">Toggle navigation</span>
+            </button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav ml-auto" style="text-align: center;">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="combos.php">Combos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="nuestras_delicias.php">Nuestras Delicias</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="galeria.php">Galeria</a>
@@ -69,26 +90,28 @@ a class="nav-link" href="nuestras_delicias.php">Nuestras Delicias</a>
             <div class="d-flex justify-content-center align-items-center imagen">
                 <h1 class="text-center texto-principal">Pizza Party<br>Servicios de Catering para Eventos</h1>
             </div>
-                    $query = "SELECT * FROM imagenes where seccion_imagen = 'Variedades'";
-                    $envio = $conexion->query($query);
-                    while($row=$envio->fetch_assoc()){
-                ?>
-                <article>
-                    <a target="_blank" data-lightbox="photos" href="<?php echo $row['URL_imagen'];?>">
-                        <img src="<?php echo $row['URL_imagen'];?>" />
-                    </a>
-                </article>
-                <?php } ?>
-            </section>
         </div>
+    </div>
 
-        <div class="row" style="margin-right: 0px;margin-left: 0px;">
-            <div class="col-12 text-center" style="padding-right: 0;padding-left: 0;">
-                <h1 class="d-inline-block titulo">Entradas</h1>
-            </div>
+    <?php
+        //Modificador admin
+        if (!empty($_SESSION['contraseña_admin'])){
+    ?>
+        <div class="espacio-admin" style="margin-top:80px;margin-bottom:20px;">
+            <a href="administracion.php#imagenes" class="modificador-admin">Modificar Imagenes</a>
+        </div>
+    <?php
+        }
+    ?>
+
+    <!--------------------------CONTENIDO DE LA SECCION-------------------------->
+    
+    <div class="row" style="margin-left: 0px;margin-right: 0px;">
+        <div class="col text-center" style="padding-right: 0;padding-left: 0;">
+            <h1 class="text-center d-inline-block titulo">Galería</h1>
             <section id="galeria" class="columnas4">
-                <?php //PHP IMAGENES ENTRADAS
-                    $query = "SELECT * FROM imagenes where seccion_imagen = 'Entradas'";
+                <?php //PHP IMAGENES
+                    $query = "SELECT * FROM imagenes where seccion_imagen = 'Famosos' or seccion_imagen = 'Produccion' or seccion_imagen = 'Eventos' order by seccion_imagen";
                     $envio = $conexion->query($query);
                     while($row=$envio->fetch_assoc()){
                 ?>
@@ -97,24 +120,13 @@ a class="nav-link" href="nuestras_delicias.php">Nuestras Delicias</a>
                         <img src="<?php echo $row['URL_imagen'];?>" />
                     </a>
                 </article>
-                <?php } ?>
-            </section>
-        </div>
-
-        <div class="row" style="margin-right: 0px;margin-left: 0px;">
-            <div class="col-12 text-center" style="padding-right: 0;padding-left: 0;">
-                <h1 class="d-inline-block titulo">Entradas Especiales</h1>
-            </div>
-            <section id="galeria" class="columnas3">
-                <?php //PHP IMAGENES ENTRADAS ESPECIALES
-e>
                 <?php } ?>
             </section>
         </div>
     </div>
     
     <!--------------------------FOOTER-------------------------->
-    
+
     <footer class="row" style="margin-right: 0px;margin-left: 0px;">
         <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-7 d-flex justify-content-center align-items-center flex-column">
             <div class="d-flex justify-content-center align-items-center flex-wrap titulo-footer">
@@ -139,15 +151,23 @@ e>
                 <h6>Celular: 11 5967-1739 (Rodrigo)</h6>
                 <h6>Mail: agusro_mendez@hotmail.com</h6>
             </div>
-
+            <ul>
+                <li><i class="fa fa-chevron-right"></i><a href="index.php">Inicio</a></li>
+                <li><i class="fa fa-chevron-right"></i><a href="combos.php">Combos</a></li>
+                <li><i class="fa fa-chevron-right"></i><a href="nuestras_delicias.php">Nuestras Delicias</a></li>
+                <li><i class="fa fa-chevron-right"></i><a href="galeria.php">Galeria</a></li>
+                <li><i class="fa fa-chevron-right"></i><a href="contacto.php">Contacto</a></li>
+            </ul>
         </div>
     </footer>
-
+    
     <!--------------------------Scripts JS-------------------------->
     
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
+
 </body>
 
 </html>
+
