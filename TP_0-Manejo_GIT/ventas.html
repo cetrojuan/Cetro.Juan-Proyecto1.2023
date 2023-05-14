@@ -69,14 +69,6 @@ a class="nav-link" href="nuestras_delicias.php">Nuestras Delicias</a>
             <div class="d-flex justify-content-center align-items-center imagen">
                 <h1 class="text-center texto-principal">Pizza Party<br>Servicios de Catering para Eventos</h1>
             </div>
-        </div>
-    </div>
-
-    <?php
-        //Modificador admin
-        if (!empty($_SESSION['contraseña_admin'])){
-    ?>
-/PHP IMAGENES VARIEDADES
                     $query = "SELECT * FROM imagenes where seccion_imagen = 'Variedades'";
                     $envio = $conexion->query($query);
                     while($row=$envio->fetch_assoc()){
