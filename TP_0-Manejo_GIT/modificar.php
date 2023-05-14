@@ -4,22 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>A&L Eventos</title>
 
-    <!--------------------------VINCULACION CSS-------------------------->
-    
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
-    <link rel="stylesheet" href="assets/css/navbar.css">
-    <link rel="stylesheet" href="assets/css/img-principal.css">
-    <link rel="stylesheet" href="assets/css/footer.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/admin.css">
-    
-    <!--------------------------FUENTES DE TEXTO-------------------------->
-
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville">
+ily=Libre+Baskerville">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playball">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Serif+Pro">
@@ -41,13 +26,7 @@
         case 'noticias':
             $query = "SELECT * FROM combos WHERE id=".$id;
             $envio = $conexion->query($query);
-            $row=$envio->fetch_assoc();
-            ?>
-
-            <form method="post" action="realizarModificacion.php?seccion=noticias&id=<?php echo $id ?>">
-                <h4 class="titulo-admin">Modificar Registro</h4>
-                <div class="form-group">
-                    <label>Descripcion</label>
+  
                     <textarea class="form-control" name="descripcion" cols="30" rows="10" value="<?php $row['descripcion'] ?>" required=""></textarea>
                 </div>
                 <div class="form-group boton-admin">
@@ -63,13 +42,7 @@
             $query = "SELECT * FROM combos WHERE id=".$id;
             $envio = $conexion->query($query);
             $row=$envio->fetch_assoc();
-            ?>
-
-            <form method="post" action="realizarModificacion.php?seccion=combos&id=<?php echo $id ?>">
-                <h4 class="titulo-admin">Modificar Registro</h4>
-                <div class="form-group">
-                    <label>Cantidad de Variedades</label>
-                    <input class="form-control" type="number" name="cantVariedades" placeholder="Ingrese la cantidad de variedades" value="<?php echo $row['cantVariedades'] ?>" required="">
+      " type="number" name="cantVariedades" placeholder="Ingrese la cantidad de variedades" value="<?php echo $row['cantVariedades'] ?>" required="">
                 </div>
                 <div class="form-group">
                     <label>Cantidad de Entradas</label>
